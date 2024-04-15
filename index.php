@@ -39,9 +39,6 @@ $hotels = [
 
 ];
 
-// var_dump($hotels);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +58,14 @@ $hotels = [
             // echo $hotel('name');
           }
         ?>
-          <li><?php echo print_r($hotel) ?></li>
+          <li><?php echo $hotel['name'] ?></li>
+          <ul>
+            <li><?php echo $hotel['description'] ?></li>
+            <li>Parcheggio: <?php echo $hotel['parking'] ? 'Si' : 'No' ?></li>
+            <li>Voto: <?php echo $hotel['vote'] ?></li>
+            <li>KM dal centro: <?php echo $hotel['distance_to_center'] ?></li>
+          </ul>
+
         <?php endforeach ?>
       </ul>
     </div>
