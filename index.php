@@ -39,7 +39,9 @@ $hotels = [
 
 ];
 
-var_dump($hotels)
+// var_dump($hotels);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +56,13 @@ var_dump($hotels)
   <div class="container my-5 ">
     <div class="row">
       <ul>
-        <li></li>
+        <?php
+        foreach ($hotels as $hotel) : {
+            // echo $hotel('name');
+          }
+        ?>
+          <li><?php echo print_r($hotel) ?></li>
+        <?php endforeach ?>
       </ul>
     </div>
   </div>
