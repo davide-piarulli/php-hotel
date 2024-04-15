@@ -39,6 +39,9 @@ $hotels = [
 
 ];
 
+$option_parcheggio = $_GET['parcheggio'];
+$option_voto = $_GET['voto'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,8 +56,39 @@ $hotels = [
 
 <body>
   <div class="container my-5 ">
-    <div class="row">
+    <!-- FORM -->
+    <form action="index.php" method="GET">
+      <label for="select-parcheggio">Il parcheggio è presente?</label>
+      <select name="parcheggio" id="select-parcheggio">
+        <option value="default" selected>Seleziona..</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select>
+
+      <label for="select-voto">Voto dell'hotel:</label>
+      <select name="voto" id="select-voto">
+        <option value="default" selected>Seleziona..</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <button type="submit" class="btn btn-primary ">Filtra Hotels</button>
+
+    </form>
+    <!-- /FORM -->
+    <div class="row row-cols-5">
+
       <?php foreach ($hotels as $hotel) : ?>
+        <?php
+        if (isset($option_parcheggio)) {
+          echo "parcheggio selezionato";
+        } else {
+          echo "parcheggio NON selezionato";
+        }
+        ?>
         <div class="col d-flex flex-wrap my-2 ">
           <div class="card" style="width: 18rem;">
             <h2><?php echo $hotel['name'] ?></h2>
